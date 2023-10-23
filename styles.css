@@ -1,0 +1,135 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-color: white;
+  position: relative;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+main {
+  padding: 0 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 9%;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  background-color: rgb(116, 161, 109);
+  color: white;
+  padding: 0px 0px;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  right: 30px;
+  list-style: none;
+}
+
+.navbar a {
+  color: white;
+  font-weight: bold;
+  margin: 0 12px;
+  text-decoration: none;
+  letter-spacing: 1px;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.navbar a:hover {
+  color: rgb(168, 167, 167);
+  text-decoration: underline;
+}
+
+/*index.html page*/
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(168, 177, 120);
+  border: 1px outset rgb(6, 43, 17);
+  border-radius: 5px;
+  border-width: 3px;
+}
+
+.about-text {
+  flex: 1;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/*blog1.html page*/
+.aboutFirstProj {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(157, 197, 163);
+  border: 1px outset rgb(50, 132, 74);
+  border-radius: 5px;
+  border-width: 3px;
+}
+.about-proj-text {
+  flex: 1;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.publish-date {
+  margin-top: 0px;
+}
+
+/*contact.html page*/
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 95%;
+  padding: 7px;
+  margin-bottom: 15px;
+  border: 2px double #98bea2;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/*unvisited and visited links*/
+a:link {
+  color: rgb(8, 36, 8);
+  text-decoration: underline;
+}
+a:visited {
+  color: rgb(56, 78, 17);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(5, 71, 1);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
