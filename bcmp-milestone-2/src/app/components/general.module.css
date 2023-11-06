@@ -1,0 +1,45 @@
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(168, 177, 120);
+    border: 1px outset rgb(6, 43, 17);
+    border-radius: 5px;
+    border-width: 3px;
+  }
+  
+  .aboutText {
+    flex: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .body {
+    background-color: white;
+    position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+  .main {
+    padding: 0 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .title {
+    padding: 0 20px 20px 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .a:Link {
+    color: rgb(8, 36, 8);
+    text-decoration: underline;
+  }
+  .a:visited {
+    color: rgb(56, 78, 17);
+  }
