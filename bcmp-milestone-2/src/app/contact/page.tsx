@@ -1,7 +1,7 @@
 "use client";
 import style from './contact.module.css'
 import React, {useRef, useState} from 'react';
-import emailjs from '@emailjs/browser';
+import emailjs from '@/app/api/';
 
 export default function Home() {
     const [name, setName] = useState('')
