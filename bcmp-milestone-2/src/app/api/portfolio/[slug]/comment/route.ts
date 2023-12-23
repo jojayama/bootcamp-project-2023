@@ -10,14 +10,13 @@ type IParams = {
 export async function POST(req: NextRequest, { params }: IParams ) {
 const body = await req.json()
 const { slug } = params;
-const user = body.user;
-const comment = body.comment;
   await connectDB();
-	// validate body
 	if (!body) {
 		return "invalid ):"
 	}
     try {
+      const user = body.user;
+      const comment = body.comment;
         const portfolio = await Portfolio.findOneAndUpdate(
             {slug: slug},
             {$push: {comments: {user: user, comment: comment}}},

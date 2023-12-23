@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import connectDB from "@/helpers/db"
-import Blog from '@/database/blogSchema'
 import blogSchema from '@/database/blogSchema'
 
 type IParams = {
@@ -9,7 +8,7 @@ type IParams = {
 		}
 }
 
-export async function GET(req: NextRequest, { params }: IParams) {
+export async function GET(req: NextRequest, { params }: IParams): Promise<NextResponse<any> | void> {
     await connectDB(); // function from db.ts before
 		const { slug } = params; // another destructure
 
