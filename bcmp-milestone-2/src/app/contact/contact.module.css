@@ -6,12 +6,38 @@
   
   .input[type="text"],
   .input[type="email"],
-  .textarea {
-    width: 95%;
+  .textareaMess {
+    width: 80%;
+    height: 200%;
     padding: 7px;
     margin-bottom: 15px;
     border: 2px double #98bea2;
     border-radius: 5px;
     font-size: 16px;
+    display:flex;
+  }
+  .textareaEmail {
+    width: 30%;
+    padding: 7px;
+    margin-bottom: 15px;
+    border: 2px double #98bea2;
+    border-radius: 5px;
+    font-size: 16px;
+    display:flex;
+  }
+
+  .textareaName {
+    width: 18%;
+    padding: 7px;
+    margin-bottom: 15px;
+    border: 2px double #98bea2;
+    border-radius: 5px;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+  }
+  .titleContact{
+    color:#479059
   }
   

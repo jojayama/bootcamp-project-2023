@@ -1,13 +1,19 @@
-import React from 'react';
-import BlogPreview from '../components/blogPreview';
-import blogs from '../blogData';
+import BlogPreview from "../components/blogPreview";
+import getBlogs from "../blogData";
+import style from "../components/general.module.css";
 
-export default function Home() {
-    return (<main>
-        {blogs.map(blog => 
-      <BlogPreview {...blog}
-            /> // This is how we call the component
-		)}
-      </main>
-    )
+export default async function Blog() {
+  const blogPosts = await getBlogs();
+  return (
+    <main className={style.main}>
+      <div className="blog_container">
+        {blogPosts && blogPosts.map((blog =>
+          <div key={blog}>
+            <BlogPreview {...blog} />
+          </div>
+        ))}
+      </div>
+    </main>
+  );
 }
+

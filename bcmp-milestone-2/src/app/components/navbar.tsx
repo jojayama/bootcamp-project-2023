@@ -13,14 +13,26 @@ export default function Home() {
         <Link href="/about">About Me</Link>
         <Link href="/resume">Resume</Link> */}
         <table>
-        <tr>
-          <td><Link href="/">Home</Link></td>
-          <td><Link href="/blog">Blog</Link></td>
-          <td><Link href="/resume">Resume</Link></td>
-          <td><Link href="/portfolio">Portfolio</Link></td>
-          <td><Link href="/contact">Contact</Link></td>
-        </tr>
-      </table>
+          <tr>
+            <tbody>
+              <td>
+                <Link href={'/'}>Home</Link>
+              </td>
+              <td>
+                <Link href={'/blog'}>Blog</Link>
+              </td>
+              <td>
+                <Link href={'/resume'}>Resume</Link>
+              </td>
+              <td>
+                <Link href={'/portfolio'}>Portfolio</Link>
+              </td>
+              <td>
+                <Link href={'/contact'}>Contact</Link>
+              </td>
+            </tbody>
+          </tr>
+        </table>
       </nav>
     </header>
   );

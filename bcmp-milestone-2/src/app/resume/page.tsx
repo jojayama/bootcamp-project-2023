@@ -1,8 +1,9 @@
+import style from '@/app/components/general.module.css'
+
 export default function Home() {
     return (<main>
-        <h1 className="page-title">Resume</h1>
+        <h1 className={style.title}>Resume</h1>
         <a href="resume.pdf" className="resume-btn" role="button">Download Resume</a>
-        <a href="resume.pdf" download>Download Resume</a>
         <div className="resume">
             <section className="section">
                 <h2 className="section-title">Education</h2>
