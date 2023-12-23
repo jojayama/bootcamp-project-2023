@@ -16,7 +16,7 @@
     padding: 0px 0px;
   }
   
-  .nav-list {
+  .nav_list {
     display: flex;
     flex-direction: row;
     position: relative;

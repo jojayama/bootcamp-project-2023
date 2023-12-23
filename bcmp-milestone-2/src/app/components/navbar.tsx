@@ -8,31 +8,12 @@ export default function Home() {
     // with your navbar code from your earlier milestones
     <header className={style.navbar}>
       <Link href="/"><h1> Jodi's Personal Website </h1></Link>
-      <nav>
-        {/* <Link href="/">Home</Link>
-        <Link href="/about">About Me</Link>
-        <Link href="/resume">Resume</Link> */}
-        <table>
-          <tr>
-            <tbody>
-              <td>
-                <Link href={'/'}>Home</Link>
-              </td>
-              <td>
-                <Link href={'/blog'}>Blog</Link>
-              </td>
-              <td>
-                <Link href={'/resume'}>Resume</Link>
-              </td>
-              <td>
-                <Link href={'/portfolio'}>Portfolio</Link>
-              </td>
-              <td>
-                <Link href={'/contact'}>Contact</Link>
-              </td>
-            </tbody>
-          </tr>
-        </table>
+      <nav className={style.nav_list}>
+        <li><Link href = "/">Home</Link></li>
+        <li><Link href = "/blog">Blog</Link></li>
+        <li><Link href = "/portfolio">Portfolio</Link></li>
+        <li><Link href = "/resume">Resume</Link></li>
+        <li><Link href = "/contact">Contact</Link></li>
       </nav>
     </header>
   );
