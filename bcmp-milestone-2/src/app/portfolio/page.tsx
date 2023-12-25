@@ -1,26 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import getPortfolios from '../portfolioData'; 
+import React from 'react';
+import getPortfolios from './portfolioData'; 
 import style from '../components/general.module.css';
 import PortfolioPreview from '../components/portfolioPreview';
 
-export default async function Portfolio(){
-  const portfolioPosts = await getPortfolios();
+export default async function Home(){
+  const portfolioPosts = await getPortfolios()
   console.log(portfolioPosts)
+  if(portfolioPosts){
     return (
     <main className={style.main}>
       <h1 className={style.title}>Portfolio</h1>
       <div className="blog_container">
-        {portfolioPosts && portfolioPosts.map((portfolio) => (
+        {portfolioPosts.map((portfolio) => (
           <div key={portfolio._id}>
-            <PortfolioPreview 
-            key ={portfolio.title}
-            projName={portfolio.title}
-            image={portfolio.image}
-            width={portfolio.width}
-            height={portfolio.height}
-            slug={portfolio.slug}
-            description={portfolio.description}
-            comments={portfolio.comment}
+            <PortfolioPreview {...portfolio._doc}
             />
           </div>
           )
@@ -28,4 +21,9 @@ export default async function Portfolio(){
       </div>
     </main>
   );
+}else if(!portfolioPosts){
+  <main>
+    <p>No portfolio projects found...</p>
+  </main>
+}
 }

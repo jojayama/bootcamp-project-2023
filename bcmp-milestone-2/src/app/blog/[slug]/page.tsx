@@ -1,7 +1,11 @@
 "use client";
-import Comment from "@/app/components/commentPreview";
+import style from '@/app/page.module.css'
+import BlogPreview from '@/app/components/blogPreview';
+import Link from "next/link";
+import { NextRequest, NextResponse } from 'next/server'
+import connectDB from "@/helpers/db"
+import Blog from '@/database/blogSchema';
 import React, {useState, useEffect} from 'react'
-import style from "@/app/components/comment.module.css"
 
 type IParams = {
     params: {
@@ -9,25 +13,14 @@ type IParams = {
     }
 }
 
-
-
-function parseCommentTime(time: Date) {
-    return new Date(time).toLocaleString('en-US', {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-    });
-}
 type Comment = {
     user: string;
     comment: string;
     time: string;
 }
 
-export default async function Blog({ params: {slug}}: IParams) {
+export default function Home({ params: {slug}}: IParams) {
+    const [isLoading, setLoading] = useState(true)
     const [blogData, setBlogData] = useState({
         title: '',
         date: '',
@@ -45,7 +38,7 @@ export default async function Blog({ params: {slug}}: IParams) {
     });
 
     const submitData = async () => {
-        const response = await fetch(`http://localhost:3000/api/blog/${slug}/comment`, {
+        const response = await fetch(`https://bootcamp-project-2023.vercel.app/api/blog/${slug}/comment`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -67,16 +60,22 @@ export default async function Blog({ params: {slug}}: IParams) {
 
     useEffect(() => {
         const fetchBlogData = async () => {
-          const response = await fetch(`http://localhost:3000/api/blog/${slug}`);
+          const response = await fetch(`https://bootcamp-project-2023.vercel.app/api/portfolio/${slug}`);
           const data = await response.json();
+          console.log("data", data)
           setBlogData(data);
+          setLoading(false)
         };
 
         fetchBlogData();
       }, [slug]); 
 
     return (
-    <div>
+    <main>
+        {isLoading ? (
+            <p>loading...</p>
+        ) :
+        (<div>
         <h2>{blogData.title}</h2>
         <h3>Date: {blogData.date}</h3>
         <p>{blogData.description}
@@ -108,6 +107,7 @@ export default async function Blog({ params: {slug}}: IParams) {
                     </div>
                 </form>
             </div>
-    </div>
-    );  
+    </div>)}
+    </main>
+    )
 }

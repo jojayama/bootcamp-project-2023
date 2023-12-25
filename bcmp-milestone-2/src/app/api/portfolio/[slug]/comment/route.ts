@@ -4,19 +4,19 @@ import Portfolio from "@/database/portfolioSchema";
 type IParams = {
   params: {
     slug: string;
-  };
-};
+  }
+}
 
 export async function POST(req: NextRequest, { params }: IParams ) {
 const body = await req.json()
 const { slug } = params;
+const user = body.user;
+const comment = body.comment;
   await connectDB();
 	if (!body) {
-		return "invalid ):"
+		return NextResponse.json("Invalid comment", { status: 404 });
 	}
     try {
-      const user = body.user;
-      const comment = body.comment;
         const portfolio = await Portfolio.findOneAndUpdate(
             {slug: slug},
             {$push: {comments: {user: user, comment: comment}}},

@@ -16,7 +16,7 @@ export type IBlog = {
   image: string;
   width: string;
   height: string;
-    comments: [IComment[]]; // array for comments
+    comments: IComment[]; // array for comments
 };
 
 
@@ -33,7 +33,7 @@ const blogSchema = new Schema<IBlog>({
 comments: [{
     user: {type: String, required: true},
     comment: {type: String, required: true},
-    time: {type: Date, required: false, default: new Date()}
+    time: {type: Date, required: false}
 }]
 })
 

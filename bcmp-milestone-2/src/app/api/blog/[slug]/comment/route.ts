@@ -10,13 +10,13 @@ type IParams = {
 
 export async function POST(req: NextRequest, { params }: IParams ) {
   console.log("called")
-	const body = await req.json()
-	const { slug } = params;
+	    const body = await req.json()
+	    const { slug } = params;
   const user = body.user;
   const comment = body.comment;
   await connectDB();
 	if (!body) {
-		return "invalid ):"
+		return NextResponse.json("Invalid comment", { status: 404 });
 	}
     try {
         const blog = await Blog.findOneAndUpdate(

@@ -10,7 +10,9 @@ type Comment = {
 }
 type Blog = {
     title: string;
+    slug: string;
     date: string;
+    description: string;
     content: string;
     image: string;
     width: string;
@@ -25,7 +27,7 @@ type Blog = {
           <main className = {style.main}>
           <h2>{props.title}</h2>
           <h3>Date: {props.date}</h3>
-          <Image src={props.image} alt="blog-image" width = {200} height = {208}/>
+          <Image src={props.image} alt="blog-image" width = {208} height = {200}/>
           <p>{props.content}
           </p>
           <div className = {style.comments}>

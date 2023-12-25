@@ -6,9 +6,9 @@ async function getPortfolios(){
 
 	try {
 			// query for all blogs and sort by date
-	    const portfolio = await Portfolio.find().sort({ date: -1 }).orFail()
+	    const portfolios = await Portfolio.find().sort({ date: -1 }).orFail()
 			// send a response as the blogs as the message
-	    return portfolio
+	    return portfolios
 	} catch (err) {
 	    return null
 	}

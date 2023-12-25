@@ -2,12 +2,25 @@ import React from 'react';
 import Link from 'next/link';
 import style from './general.module.css';
 import Image from 'next/image';
-import { IPortfolio } from '@/database/portfolioSchema';
 import {useState, useEffect} from 'react';
 
-export default function PortfolioPreview(props: IPortfolio) {
+type Comment = {
+  user: string;
+  comment: string;
+}
+type Portfolio = {
+  projName: string;
+  image: string;
+  width: string;
+  height: string;
+  slug: string; 
+  description: string; // for preview
+  comments: Comment[];
+};
+
+export default function PortfolioPreview(props: Portfolio) {
   return (
-    <><div>
+    <div>
       <Link href={`/portfolio/${props.slug}`}>
         <a className={style.link}>
           <h3>{props.projName}</h3>
@@ -17,13 +30,6 @@ export default function PortfolioPreview(props: IPortfolio) {
       <div>
         <p>{props.description}</p>
       </div>
-    {/* </div><div className={style.comments}>
-        {props.comments.map((comment, index) => (
-          <div key={index} className={style.comment}>
-            <p className={style.user}>{comment.user}</p>
-            <p>{comment.comment}</p>
-          </div>
-        ))} */}
-      </div></>
+      </div>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import styles from '../../blog/page.module.css';
+import style from '../../blog/page.module.css';
 import React, {useState, useEffect} from 'react'
 
 type Comment = {
@@ -14,13 +14,14 @@ type IParams = {
 }
 
 export default function Home({ params: { slug } }: IParams) {
-    const [portfolioData, setProjectData] = useState({
+    const [isLoading, setLoading] = useState(true)
+    const [portfolioData, setPortfolioData] = useState({
         projName: '',
         image: '',
         width: '',
         height: '',
         slug: '',
-        description: '', // for preview
+        description: '',
         comments: []
       });
 
@@ -30,7 +31,7 @@ export default function Home({ params: { slug } }: IParams) {
     });
 
     const submitData = async () => {
-        const response = await fetch(`http://localhost:3000/api/portfolio/${slug}/comment`, {
+        const response = await fetch(`https://bootcamp-project-2023.vercel.app/api/portfolio/${slug}/comment`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -40,8 +41,8 @@ export default function Home({ params: { slug } }: IParams) {
             comment: newComment.comment,
         }),
         });
-        const updatedProjectData = await response.json();
-        setProjectData(updatedProjectData);
+        const updatePortfolioData = await response.json();
+        setPortfolioData(updatePortfolioData);
 
         setNewComment({
             username: '',
@@ -50,49 +51,53 @@ export default function Home({ params: { slug } }: IParams) {
     }
 
     useEffect(() => {
-        const fetchProjectData = async () => {
-          const response = await fetch(`http://localhost:3000/api/portfolio/${slug}`);
+        const fetchPortfolioData = async () => {
+          const response = await fetch(`https://bootcamp-project-2023.vercel.app/api/portfolio/${slug}`);
           const data = await response.json();
           console.log("data", data)
-          setProjectData(data);
+          setPortfolioData(data);
+          setLoading(false)
           console.log(portfolioData)
         };
 
-        fetchProjectData();
+        fetchPortfolioData();
       }, [slug]); 
 
-    return(<main className = {styles.main}>
+    return(<main className = {style.main}>
+        {isLoading ? (<p>loading...</p>) :(
+            <div>
         <h2>{portfolioData.projName}</h2>
-        <p className = {styles.content}>
+        <p className = {style.content}>
             {portfolioData.description}
         </p>
-        <div className = {styles.comments}>
+        <div className = {style.comments}>
             {portfolioData.comments?.map((comment : Comment, index: number) => (
-                    <div key = {index} className = {styles.comment}> 
-                        <p className = {styles.user}>{comment.user}</p>
+                    <div key = {index} className = {style.comment}> 
+                        <p className = {style.user}>{comment.user}</p>
                         <p>{comment.comment}</p>
                     </div>
             ))}
-            <div className = {styles.commentForm}>
-                <form className = {styles.totalForm}>
-                    <div className = {styles.formElement}>
+            <div className = {style.commentForm}>
+                <form className = {style.totalForm}>
+                    <div className = {style.formElement}>
                     <label>Name:   </label>
-                    <textarea id="userName" className={styles.userName} 
+                    <textarea id="userName" className={style.userName} 
                         onChange={(e) => setNewComment({ ...newComment, username: e.target.value })}
                         required/>
                     </div>
-                    <div className = {styles.formElement}>
+                    <div className = {style.formElement}>
                     <label>Comment:   </label>
-                    <textarea className= {styles.userComment}
+                    <textarea className= {style.userComment}
                         onChange={(e) => setNewComment({ ...newComment, comment: e.target.value })}
                         required/>
                     </div>
-                    <div className = {styles.formElement}>
-                        <button type="button" className={styles.submitButton} onClick={submitData}>Submit Comment</button>
+                    <div className = {style.formElement}>
+                        <button type="button" className={style.submitButton} onClick={submitData}>Submit Comment</button>
                     </div>
                 </form>
             </div>
         </div>
+        </div>)}
         </main>
     )
 }

@@ -1,10 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import style from './general.module.css';
-import { IBlog } from '@/database/blogSchema';
 import Image from 'next/image';
 
-export default function BlogPreview(props: IBlog) {
+type Blog = {
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+  slug: string;
+}
+
+export default function BlogPreview(props: Blog) {
   return (
     <div>
       <Link className={style.link} href={`blog/${props.slug}`}>
@@ -13,7 +20,7 @@ export default function BlogPreview(props: IBlog) {
       <p className='style.publish-date'>{props.date}</p>
           <Image src={props.image} alt="Blog Image" width={208} height={200}/>
       <div>
-        <p>{props.content}</p>
+        <p>{props.description}</p>
       </div>
     </div>
   );

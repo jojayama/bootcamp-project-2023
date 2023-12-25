@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Roboto_Serif } from "next/font/google"; // You can change the font to anything you want.
+import { Roboto_Serif } from "next/font/google"; // You can change the font to anything you want.
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 

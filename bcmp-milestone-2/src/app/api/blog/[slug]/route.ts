@@ -10,7 +10,7 @@ type IParams = {
 
 export async function GET(req: NextRequest, { params }: IParams): Promise<NextResponse<any> | void> {
     await connectDB(); // function from db.ts before
-		const { slug } = params; // another destructure
+		const { slug } = params;
 
 	   try {
 	        const blog = await blogSchema.findOne({ slug }).orFail();
