@@ -14,13 +14,14 @@
   }
 
   .comments{
-    background: rgb(187, 207, 203);
-    width: 50%;
-    padding: 0 20px 40px 20px;
+    background: rgb(207, 248, 207);
+    width: 70%;
+    padding: 0 20px 20px 20px;
+    margin:auto;
     display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
     font-weight: lighter;
   }
   
@@ -28,20 +29,36 @@
     margin-top: 0px;
   }
 
+  .commentForm{
+    background: rgba(90, 148, 115, 0.164);
+    height: 180px;
+    padding: 30px;
+    margin-top: 30px;
+  }
+
+  .userComment{
+    width: 100%;
+    height: 50px;
+    background: none;
+    outline: none;
+    resize: none;
+  }
   
-.comments{
-  background: rgb(129, 163, 132);
-  width: 50%;
-  padding: 0 20px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: left;
-  font-weight: lighter;
-}
+  .userName{
+    width: 100%;
+    background: none;
+    outline: none;
+    resize: none;
+  }
+
+  .load{
+    text-align:center;
+  }
+
 
 .user{
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .blogImage{

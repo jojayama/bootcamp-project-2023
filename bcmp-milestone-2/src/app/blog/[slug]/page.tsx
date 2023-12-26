@@ -1,5 +1,5 @@
 "use client";
-import style from '@/app/page.module.css'
+import style from '@/app/blog/page.module.css'
 import BlogPreview from '@/app/components/blogPreview';
 import Link from "next/link";
 import { NextRequest, NextResponse } from 'next/server'
@@ -38,7 +38,7 @@ export default function Home({ params: {slug}}: IParams) {
     });
 
     const submitData = async () => {
-        const response = await fetch(`https://bootcamp-project-2023.vercel.app/api/blog/${slug}/comment`, {
+        const response = await fetch(`http://localhost:3000/api/blog/${slug}/comment`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export default function Home({ params: {slug}}: IParams) {
 
     useEffect(() => {
         const fetchBlogData = async () => {
-          const response = await fetch(`https://bootcamp-project-2023.vercel.app/api/portfolio/${slug}`);
+          const response = await fetch(`http://localhost:3000/api/blog/${slug}`);
           const data = await response.json();
           console.log("data", data)
           setBlogData(data);
@@ -73,7 +73,7 @@ export default function Home({ params: {slug}}: IParams) {
     return (
     <main>
         {isLoading ? (
-            <p>loading...</p>
+            <p className={style.load}>Just a moment...</p>
         ) :
         (<div>
         <h2 className={style.title}>{blogData.title}</h2>
@@ -81,13 +81,14 @@ export default function Home({ params: {slug}}: IParams) {
         <p>{blogData.description}</p>
         <img src={blogData.image} width = {blogData.width} height ={blogData.height}/> 
         <p>{blogData.content}</p>
-        {blogData.comments?.map((comment : Comment, index: number) => (
+        <div className = {style.comments}>
+            {blogData.comments?.map((comment : Comment, index: number) => (
                     <div key = {index} className = {style.comment}> 
                         <p className = {style.user}>{comment.user}</p>
                         <p>{comment.comment}</p>
                     </div>
-        ))}
-        <div className = {style.commentForm}>
+            ))}
+            <div className = {style.commentForm}>
                 <form className = {style.totalForm}>
                     <div className = {style.formElement}>
                     <label>Name:   </label>
@@ -106,7 +107,8 @@ export default function Home({ params: {slug}}: IParams) {
                     </div>
                 </form>
             </div>
-    </div>)}
+        </div>
+        </div>)}
     </main>
     )
 }
