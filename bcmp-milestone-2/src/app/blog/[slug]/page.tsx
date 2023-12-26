@@ -38,7 +38,7 @@ export default function Home({ params: {slug}}: IParams) {
     });
 
     const submitData = async () => {
-        const response = await fetch(`https://bootcamp-project-2023-beryl.vercel.app/api/blog/${slug}`, {
+        const response = await fetch(`https://bootcamp-project-2023-beryl.vercel.app/api/blog/${slug}/comment`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
