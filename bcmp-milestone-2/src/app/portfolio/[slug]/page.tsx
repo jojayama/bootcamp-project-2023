@@ -31,7 +31,7 @@ export default function Home({ params: { slug } }: IParams) {
     });
 
     const submitData = async () => {
-        const response = await fetch(`http://localhost:3000/api/portfolio/${slug}/comment`, {
+        const response = await fetch(`https://bootcamp-project-2023-8nkk7860q-jojayamas-projects.vercel.app/api/portfolio/${slug}/comment`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export default function Home({ params: { slug } }: IParams) {
 
     useEffect(() => {
         const fetchPortfolioData = async () => {
-          const response = await fetch(`http://localhost:3000/api/portfolio/${slug}`);
+          const response = await fetch(`https://bootcamp-project-2023-8nkk7860q-jojayamas-projects.vercel.app/api/portfolio${slug}`);
           const data = await response.json();
           console.log("data", data)
           setPortfolioData(data);
