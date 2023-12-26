@@ -18,8 +18,8 @@ export default function Home({ params: { slug } }: IParams) {
     const [portfolioData, setPortfolioData] = useState({
         projName: '',
         image: '',
-        width: '',
-        height: '',
+        width: 0,
+        height: 0,
         slug: '',
         description: '',
         comments: []
@@ -65,7 +65,7 @@ export default function Home({ params: { slug } }: IParams) {
 
     return(<main className = {style.main}>
         {isLoading ? (<p>loading...</p>) :(
-            <div>
+        <div>
         <h2>{portfolioData.projName}</h2>
         <p className = {style.content}>
             {portfolioData.description}

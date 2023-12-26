@@ -8,10 +8,10 @@ type IParams = {
 }
 
 export async function POST(req: NextRequest, { params }: IParams ) {
-const body = await req.json()
-const { slug } = params;
-const user = body.user;
-const comment = body.comment;
+  const body = await req.json()
+  const { slug } = params;
+  const user = body.user;
+  const comment = body.comment;
   await connectDB();
 	if (!body) {
 		return NextResponse.json("Invalid comment", { status: 404 });
@@ -28,5 +28,4 @@ const comment = body.comment;
     } catch (err) {
         return NextResponse.json("Blog not found.", { status: 404 });
     }
-
 }

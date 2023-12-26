@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import style from './blogPreview.module.css';
-import Link from "next/link";
 
 type Comment = {
     user: string;

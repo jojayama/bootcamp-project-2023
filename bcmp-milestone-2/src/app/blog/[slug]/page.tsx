@@ -76,10 +76,9 @@ export default function Home({ params: {slug}}: IParams) {
             <p>loading...</p>
         ) :
         (<div>
-        <h2>{blogData.title}</h2>
+        <h2 className={style.title}>{blogData.title}</h2>
         <h3>Date: {blogData.date}</h3>
-        <p>{blogData.description}
-        </p>
+        <p>{blogData.description}</p>
         <img src={blogData.image} width = {blogData.width} height ={blogData.height}/> 
         <p>{blogData.content}</p>
         {blogData.comments?.map((comment : Comment, index: number) => (

@@ -5,15 +5,15 @@ import PortfolioPreview from '../components/portfolioPreview';
 
 export default async function Home(){
   const portfolioPosts = await getPortfolios()
-  console.log(portfolioPosts)
+  // console.log(portfolioPosts)
   if(portfolioPosts){
     return (
     <main className={style.main}>
       <h1 className={style.title}>Portfolio</h1>
       <div className="blog_container">
-        {portfolioPosts.map((portfolio) => (
-          <div key={portfolio._id}>
-            <PortfolioPreview {...portfolio._doc}
+        {portfolioPosts.map((portfolios) => (
+          <div key={portfolios._id}>
+            <PortfolioPreview {...portfolios._doc}
             />
           </div>
           )

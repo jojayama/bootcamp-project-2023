@@ -21,10 +21,8 @@ type Portfolio = {
 export default function PortfolioPreview(props: Portfolio) {
   return (
     <div>
-      <Link href={`/portfolio/${props.slug}`}>
-        <a className={style.link}>
+      <Link className={style.link} href={`/portfolio/${props.slug}`}>
           <h3>{props.projName}</h3>
-        </a>
       </Link>
       <Image src={props.image} alt="img" width={208} height={200} />
       <div>
