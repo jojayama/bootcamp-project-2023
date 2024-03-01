@@ -26,7 +26,7 @@ type Blog = {
           <main className = {style.main}>
           <h2>{props.title}</h2>
           <h3>Date: {props.date}</h3>
-          <Image src={props.image} alt="blog-image" width = {208} height = {200}/>
+          <Image src={props.image} alt="blog-image" width = {140} height = {200}/>
           <p>{props.content}
           </p>
           <div className = {style.comments}>

@@ -24,7 +24,7 @@ export default function PortfolioPreview(props: Portfolio) {
       <Link className={style.link} href={`/portfolio/${props.slug}`}>
           <h3>{props.projName}</h3>
       </Link>
-      <Image src={props.image} alt="img" width={208} height={200} />
+      <Image src={props.image} alt="img" width={150} height={200} />
       <div>
         <p>{props.description}</p>
       </div>
